@@ -8,6 +8,10 @@ load_dotenv(find_dotenv())
 API_TOKEN = os.getenv('TOKEN')
 bot = telebot.TeleBot(API_TOKEN)
 
+@bot.message_handler(commands=['Start'])
+def start_poisk2(message):
+    chatID = message.from_user.id
+    bot.send_message(chatID, 'Привет, пользователь. Для генерации мема нужно ввести команду /Mem')
 
 
 @bot.message_handler(commands=['MeM'])
